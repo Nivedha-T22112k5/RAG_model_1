@@ -10,6 +10,10 @@ from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
+from flask import Flask, render_template, request, jsonify
+
+import pysqlite3
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Load variables from .env file into environment
 load_dotenv()
